@@ -2,12 +2,16 @@ package springmvc.controller;
 
 
 
+
+import java.awt.Dialog.ModalExclusionType;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -29,5 +33,23 @@ public class HomeController {
 	public String about() {
 		System.out.println("This is about url");
 		return "about";
+	}
+	
+	@RequestMapping("/help")
+	public ModelAndView help()
+	{
+		System.out.println("This is help controller");
+		
+		//Creating the object of modal and view
+		ModelAndView modelAndView = new ModelAndView();
+		//Setting objects in modal and view object
+		modelAndView.addObject("name","Raghunath");
+		modelAndView.addObject("rollno",4564);
+	    LocalDateTime time = LocalDateTime.now();
+	    modelAndView.addObject("time",time);
+		//Setting the view page
+		modelAndView.setViewName("help");
+		//Returning modal and view object
+		return modelAndView;
 	}
 }
