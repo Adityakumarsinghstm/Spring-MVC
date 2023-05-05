@@ -47,6 +47,14 @@ public class HomeController {
 		modelAndView.addObject("rollno",4564);
 	    LocalDateTime time = LocalDateTime.now();
 	    modelAndView.addObject("time",time);
+	    
+	    List<Integer> list = new ArrayList<Integer>();
+	    list.add(345);
+	    list.add(349);
+	    list.add(876);
+	    list.add(879);
+	    list.add(878);
+	    modelAndView.addObject("marks",list);
 		//Setting the view page
 		modelAndView.setViewName("help");
 		//Returning modal and view object
